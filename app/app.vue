@@ -1,5 +1,6 @@
 <template>
-  <h1 class="text-3xl font-bold underline text-red-600">
-    Hello world!
-  </h1>
+  <!-- Bungkus seluruh aplikasi dengan layout -->
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
