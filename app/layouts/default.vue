@@ -8,9 +8,9 @@
       <slot />
     </main>
 
+    <FloatingWhatsapp phone="6281234567890" message="Halo admin, saya mau tanya tentang paket umrah." />
+
     <!-- Footer -->
-    <footer class="bg-gray-100 text-center py-6 mt-12">
-      <p class="text-gray-600">© 2025 Obaja Tour & Travel</p>
-    </footer>
+    <Footer />
   </div>
 </template>
