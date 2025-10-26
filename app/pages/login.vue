@@ -48,9 +48,9 @@ const handleLogin = () => {
             <input v-model="remember" type="checkbox" class="accent-yellow-500" />
             Ingat saya
           </label>
-          <NuxtLink to="/forgot-password" class="text-yellow-500 hover:underline">
+          <!-- <NuxtLink to="/forgot-password" class="text-yellow-500 hover:underline">
             Lupa password?
-          </NuxtLink>
+          </NuxtLink> -->
         </div>
 
         <button type="submit"

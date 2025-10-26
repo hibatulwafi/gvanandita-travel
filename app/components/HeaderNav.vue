@@ -15,24 +15,24 @@ const isOpen = ref(false);
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-6 font-medium items-center">
-        <NuxtLink to="/" class="hover:text-orange-400 transition">Beranda</NuxtLink>
-        <NuxtLink to="/haji-umrah" class="hover:text-orange-400 transition">Haji & Umrah</NuxtLink>
-        <NuxtLink to="/mice" class="hover:text-orange-400 transition">MICE</NuxtLink>
-        <NuxtLink to="/about" class="hover:text-orange-400 transition">About</NuxtLink>
-        <NuxtLink to="/contact" class="hover:text-orange-400 transition">Contact</NuxtLink>
+        <NuxtLink to="/" class="hover:text-primary-500 transition">Beranda</NuxtLink>
+        <NuxtLink to="/haji-umrah" class="hover:text-primary-500 transition">Haji & Umrah</NuxtLink>
+        <NuxtLink to="/mice" class="hover:text-primary-500 transition">MICE</NuxtLink>
+        <NuxtLink to="/about" class="hover:text-primary-500 transition">About</NuxtLink>
+        <NuxtLink to="/contact" class="hover:text-primary-500 transition">Contact</NuxtLink>
       </nav>
 
       <!-- Auth Buttons (Desktop) -->
-      <div class="hidden md:flex space-x-4 items-center">
+      <!-- <div class="hidden md:flex space-x-4 items-center">
         <NuxtLink to="/login"
-          class="inline-flex items-center text-sm font-medium text-blue-400 hover:text-orange-400 px-4 py-2 transition">
+          class="inline-flex items-center text-sm font-medium text-blue-400 hover:text-primary-500 px-4 py-2 transition">
           Sign In
         </NuxtLink>
         <NuxtLink to="/register"
-          class="inline-flex items-center text-sm font-medium bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg shadow transition">
+          class="inline-flex items-center text-sm font-medium bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg shadow transition">
           Sign Up
         </NuxtLink>
-      </div>
+      </div> -->
 
       <!-- Mobile menu button -->
       <button class="md:hidden focus:outline-none text-white" @click="isOpen = !isOpen">
@@ -44,22 +44,22 @@ const isOpen = ref(false);
 
     <!-- Mobile Navigation -->
     <div v-if="isOpen" class="md:hidden bg-black/90 text-white px-6 py-4 space-y-4">
-      <NuxtLink to="/" class="block hover:text-orange-400">Beranda</NuxtLink>
-      <NuxtLink to="/haji-umrah" class="block hover:text-orange-400">Haji & Umrah</NuxtLink>
-      <NuxtLink to="/mice" class="block hover:text-orange-400">MICE</NuxtLink>
-      <NuxtLink to="/about" class="block hover:text-orange-400">About</NuxtLink>
-      <NuxtLink to="/contact" class="block hover:text-orange-400">Contact</NuxtLink>
+      <NuxtLink to="/" class="block hover:text-primary-500">Beranda</NuxtLink>
+      <NuxtLink to="/haji-umrah" class="block hover:text-primary-500">Haji & Umrah</NuxtLink>
+      <NuxtLink to="/mice" class="block hover:text-primary-500">MICE</NuxtLink>
+      <NuxtLink to="/about" class="block hover:text-primary-500">About</NuxtLink>
+      <NuxtLink to="/contact" class="block hover:text-primary-500">Contact</NuxtLink>
 
       <!-- Auth Buttons (Mobile) -->
-      <div class="pt-4 border-t border-gray-700 space-y-2">
-        <NuxtLink to="/login" class="block text-blue-400 hover:text-orange-400 px-4 py-2">
+      <!-- <div class="pt-4 border-t border-gray-700 space-y-2">
+        <NuxtLink to="/login" class="block text-blue-400 hover:text-primary-500 px-4 py-2">
           Sign In
         </NuxtLink>
         <NuxtLink to="/register"
-          class="block bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-center">
+          class="block bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg text-center">
           Sign Up
         </NuxtLink>
-      </div>
+      </div> -->
     </div>
   </header>
 </template>
