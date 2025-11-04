@@ -59,18 +59,26 @@ const testimonials = [
 
     <!-- 💎 Hot Deals Section -->
     <section class="container mx-auto py-16 px-6 text-center">
+      <!-- 🌟 Judul -->
       <h2 class="text-3xl font-bold text-gray-900 mb-2" data-aos="fade-up">
         <span class="text-yellow-500">Hot Deals</span> Tour Umrah & Haji
       </h2>
-      <p class="text-gray-600 mb-10" data-aos="fade-up" data-aos-delay="150">
-        Rekomendasi paket perjalanan terbaik untuk pengalaman ibadah yang nyaman
-        dan berkesan.
+      <p
+        class="text-gray-600 mb-10 max-w-2xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="150"
+      >
+        Pilihan paket perjalanan
+        <span class="text-yellow-600 font-semibold">unggulan</span>
+        untuk pengalaman ibadah yang nyaman, aman, dan penuh makna.
       </p>
 
-      <!-- 🌀 Loading State -->
-      <div v-if="isLoading" class="py-10 text-gray-500">Memuat paket...</div>
+      <!-- 🌀 Loading -->
+      <div v-if="isLoading" class="py-10 text-gray-500 italic">
+        Sedang memuat paket...
+      </div>
 
-      <!-- ⚠️ Error State -->
+      <!-- ⚠️ Error -->
       <div
         v-else-if="hasError"
         class="py-10 text-red-500 font-medium text-center"
@@ -78,7 +86,7 @@ const testimonials = [
         Gagal memuat data paket. Silakan coba lagi nanti.
       </div>
 
-      <!-- ✅ Data Available -->
+      <!-- ✅ Featured Tours -->
       <div
         v-else-if="featured.length"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -86,46 +94,99 @@ const testimonials = [
         <div
           v-for="(tour, i) in featured"
           :key="tour.id"
-          class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition duration-300"
+          class="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transform hover:-translate-y-1 transition duration-300"
           data-aos="zoom-in"
-          :data-aos-delay="i * 200"
+          :data-aos-delay="i * 150"
         >
-          <img
-            :src="tour.thumbnail_url || '/images/no-image.jpg'"
-            :alt="tour.name"
-            class="w-full h-56 object-cover"
-          />
+          <!-- 🖼️ Image -->
+          <div class="relative">
+            <img
+              :src="tour.thumbnail_url || '/images/no-image.jpg'"
+              :alt="tour.name"
+              class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
 
-          <div class="p-6 flex flex-col justify-between h-full">
-            <div>
-              <h3 class="font-semibold text-lg mb-2">{{ tour.name }}</h3>
-              <p class="text-gray-600 text-sm mb-4 line-clamp-3">
-                {{ tour.description }}
-              </p>
+            <!-- 🌟 Badge Unggulan -->
+            <div
+              class="absolute top-3 right-3 bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg flex items-center gap-1"
+            >
+              <Icon icon="mdi:star" class="w-5 h-5" />
+              Unggulan
             </div>
 
-            <div class="flex items-center justify-between mt-auto">
-              <span class="text-yellow-600 font-bold text-lg">
-                {{ tour.price_text }}
-              </span>
-              <NuxtLink
-                :to="`/haji-umrah/${tour.slug}`"
-                class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg text-sm transition"
+            <!-- Gradient Overlay -->
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+            ></div>
+
+            <!-- 🏷️ Tour Name -->
+            <h3
+              class="absolute bottom-3 left-4 text-white font-bold text-lg drop-shadow-lg text-left"
+            >
+              {{ tour.name }}
+            </h3>
+          </div>
+
+          <!-- 📄 Info -->
+          <div class="p-6 text-left flex flex-col justify-between gap-3">
+            <!-- Deskripsi -->
+            <p class="text-gray-600 text-sm line-clamp-3 leading-relaxed">
+              {{ tour.description }}
+            </p>
+
+            <!-- Harga & Tombol -->
+            <div
+              class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 pt-3 border-t border-gray-100"
+            >
+              <!-- 💰 Harga + Keterangan -->
+              <div class="flex flex-col items-start">
+                <span
+                  class="text-yellow-600 font-semibold text-base sm:text-sm whitespace-nowrap"
+                >
+                  {{ tour.price_text }}
+                </span>
+                <p class="text-gray-400 text-xs mt-1 italic leading-snug">
+                  *Harga dapat berubah sewaktu-waktu tanpa pemberitahuan.
+                </p>
+              </div>
+
+              <!-- 🔘 Tombol -->
+              <div
+                class="flex flex-wrap justify-start sm:justify-end gap-2 w-full sm:w-auto"
               >
-                Lihat Detail
-              </NuxtLink>
+                <!-- 🔗 Lihat Detail -->
+                <NuxtLink
+                  :to="`/haji-umrah/${tour.slug}`"
+                  class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg text-sm font-medium shadow transition w-full sm:w-auto text-center flex items-center justify-center"
+                >
+                  <Icon icon="mdi:arrow-right" class="w-4 h-4 mr-1" />
+                  Lihat Detail
+                </NuxtLink>
+
+                <!-- 💬 Konsultasi WhatsApp -->
+                <a
+                  :href="`https://wa.me/6282311001068?text=Halo! Saya tertarik dengan paket ${encodeURIComponent(
+                    tour.name
+                  )}`"
+                  target="_blank"
+                  class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center justify-center gap-1 shadow transition w-full sm:w-auto"
+                >
+                  <Icon icon="mdi:whatsapp" class="w-4 h-4 mr-1 text-white" />
+                  Konsultasi
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 🕳️ Empty State -->
+      <!-- 🕳️ Empty -->
       <div
         v-else
-        class="py-10 text-gray-500 font-medium text-center italic"
+        class="py-10 text-gray-500 font-medium italic"
         data-aos="fade-up"
       >
-        Paket belum tersedia saat ini. Silakan coba lagi nanti.
+        Paket unggulan belum tersedia saat ini.
       </div>
     </section>
 
@@ -265,3 +326,9 @@ const testimonials = [
     </section>
   </div>
 </template>
+
+<style scoped>
+.sm\:w-auto {
+  width: calc(100% - 1rem);
+}
+</style>

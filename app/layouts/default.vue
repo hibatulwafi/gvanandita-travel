@@ -23,7 +23,7 @@ onMounted(() => {
       <slot />
     </main>
 
-    <FloatingWhatsapp phone="6281234567890" message="Halo admin, saya mau tanya tentang paket umrah." />
+    <FloatingWhatsapp phone="6282311001068" message="Halo admin, saya mau tanya tentang paket umrah." />
 
     <!-- Footer -->
     <Footer />

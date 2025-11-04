@@ -133,7 +133,6 @@ const error = computed(() => tourStore.error);
         </div>
       </div>
 
-      <!-- 🌀 Loading -->
       <!-- 🌀 Loading (Shimmer Skeleton) -->
       <div
         v-if="isLoading"

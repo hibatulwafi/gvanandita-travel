@@ -41,7 +41,7 @@ export const useContactStore = defineStore("contact", {
         const token = useCookie("XSRF-TOKEN").value;
 
         // Kirim POST request dengan token
-        const res = await $fetch("/travel/contact/send", {
+        const res = await $fetch("/admin/travel/contact/send", {
           baseURL,
           method: "POST",
           body: payload,
